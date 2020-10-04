@@ -1,9 +1,10 @@
 const { gql } = require('apollo-server');
-
 const typeDefs = gql`
   type Exercise {
     id: String
     name: String
+    category: Category
+    muscles: [Muscle!]
   }
   type Equipment {
     id: Int!
@@ -13,18 +14,25 @@ const typeDefs = gql`
     id: Int!
     name: String
   }
+  type Category {
+    id: Int!
+    name: String
+  }
   type Query {
     exercises: [Exercise]
     muscles: [Muscle]
     equipment: [Equipment]
-    exercise(id: ID): Exercise
+    exercise(name: String!): Exercise
     muscle(id: ID): Muscle
     equipmentById(id: ID): Equipment
+    categories: [Category],
+    categoryById(name: String!): Category,
   }
   type Mutation {
-    createExercise: Exercise
-    createMuscle: Muscle
-    createEquipment: Equipment
+    createExercise(name: String!, category: String!, muscles: String!): Exercise
+    createMuscle(name: String): Muscle
+    createEquipment(name: String): Equipment
+    createCategory(name: String): Category
   }
 `;
 

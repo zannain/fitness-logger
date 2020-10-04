@@ -5,6 +5,10 @@ class WgerExercise extends RESTDataSource {
         super();
         this.baseURL = 'https://wger.de/api/v2/';
     }
+    async getExerciseCategories() {
+        const data = await this.get(`exercisecategory`, {format: 'json', status: '2'});
+        return data.results;
+    }
 
     async getAllExercises() {
         const data = await this.get(`exercise`, {format: 'json', status: '2'});

@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { v4 as uuidv4 } from 'uuid';
-const GET_EXERCISES = gql`
+export const GET_EXERCISES = gql`
   query GET_EXERCISES {
     exercises {
       name
