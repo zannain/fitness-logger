@@ -1,9 +1,9 @@
 require('dotenv').config();
 const { ApolloServer } = require('apollo-server');
-const typeDefs = require('./schema');
-const resolvers = require('./resolvers');
+const typeDefs = require('./src/schema');
+const resolvers = require('./src/resolvers');
 const WgerExercise = require('./data/wger-exercise');
-require('./config');
+require('./src/config');
 const server = new ApolloServer({
     typeDefs,
     resolvers,

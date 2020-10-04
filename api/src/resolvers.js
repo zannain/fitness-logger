@@ -1,4 +1,4 @@
-const { Exercises, MuscleGroup, Equipment, Category } = require('./model');
+const { Exercises, MuscleGroup, Equipment, Category } = require('./db/index');
 
 const resolvers = {
     Query: {
